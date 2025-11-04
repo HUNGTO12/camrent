@@ -189,7 +189,6 @@ export default function OrderManagement() {
   const [searchTerm, setSearchTerm] = useState("");
   const [tabValue, setTabValue] = useState(0);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const [selectedOrder, setSelectedOrder] = useState<Order | null>(null);
 
   /**
    * Lấy màu cho status chip
@@ -229,7 +228,8 @@ export default function OrderManagement() {
     order: Order
   ) => {
     setAnchorEl(event.currentTarget);
-    setSelectedOrder(order);
+    // Store selected order for future use
+    console.log("Selected order:", order);
   };
 
   /**
@@ -237,7 +237,6 @@ export default function OrderManagement() {
    */
   const handleMenuClose = () => {
     setAnchorEl(null);
-    setSelectedOrder(null);
   };
 
   /**

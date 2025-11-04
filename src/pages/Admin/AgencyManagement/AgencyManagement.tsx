@@ -75,7 +75,6 @@ const AgencyManagement: React.FC = () => {
   const [agencies] = useState<Agency[]>(mockAgencies);
   const [searchTerm, setSearchTerm] = useState("");
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const [selectedAgency, setSelectedAgency] = useState<Agency | null>(null);
   const [openDialog, setOpenDialog] = useState(false);
 
   const handleMenuClick = (
@@ -83,12 +82,12 @@ const AgencyManagement: React.FC = () => {
     agency: Agency
   ) => {
     setAnchorEl(event.currentTarget);
-    setSelectedAgency(agency);
+    // Store selected agency for future use
+    console.log("Selected agency:", agency);
   };
 
   const handleMenuClose = () => {
     setAnchorEl(null);
-    setSelectedAgency(null);
   };
 
   const handleOpenDialog = () => {

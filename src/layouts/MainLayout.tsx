@@ -5,7 +5,11 @@ import CameraRegisterModal from "@/components/Modal/ModalRegister";
 
 import { Button } from "@mui/material";
 
-const MainLayout: React.FC = () => {
+interface MainLayoutProps {
+  children?: React.ReactNode;
+}
+
+const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   const location = useLocation();
   const [loginOpen, setLoginOpen] = useState(false);
   const [registerOpen, setRegisterOpen] = useState(false);
@@ -121,9 +125,7 @@ const MainLayout: React.FC = () => {
       </header>
 
       {/* Content */}
-      <main className="app-content">
-        <Outlet />
-      </main>
+      <main className="app-content">{children || <Outlet />}</main>
 
       {/* Modal Login */}
       <CameraLoginModal
